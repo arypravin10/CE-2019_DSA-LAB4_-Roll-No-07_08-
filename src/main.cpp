@@ -39,3 +39,30 @@ int main()
 
     // printing neighbours of vertex
     g.show_neighbours(3);
+
+// printing outdegree of vertex
+    std::cout << "The indegree of vertex 3 is ";
+    std::cout << g.show_indegree(3) << std::endl;
+
+    // printing total degree of a vertex
+    std::cout << "The degree of vertex 3 is ";
+    std::cout << g.show_degree(3) << std::endl;
+
+    // printing total num of edges
+    std::cout << "The total num of edges is ";
+    std::cout << g.show_numof_edges();
+    std::cout << std::endl;
+
+    // checking if one vertex is neighbour of another vertex or not
+    std::cout << g.is_neighbour(2, 5) << std::endl;
+
+    //  removing vertex and its edges
+    g.remove_vertex(3);
+    g.removing_edge(3);
+
+    //  checking if vertex 3 has been removed or not
+    g.show_neighbours(3);
+
+    // checking if the neighbour 3 in 2 has also been  removed or not
+    g.show_neighbours(2);
+}
