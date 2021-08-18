@@ -65,4 +65,11 @@ int main()
 
     // checking if the neighbour 3 in 2 has also been  removed or not
     g.show_neighbours(2);
+
+    Graph graph;
+
+    std::cout<<"Generating Random Graph"<<std::endl;
+
+    graph.randomGraph(5);
+    graph.print();
 }

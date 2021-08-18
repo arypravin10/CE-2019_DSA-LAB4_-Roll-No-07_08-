@@ -1,5 +1,6 @@
 #include <iostream>
 #include "graph.h"
+#include <time.h>//To generate random graph
 
 bool Graph::is_empty()
 {
@@ -201,4 +202,36 @@ void Graph::show_neighbours(int vertex)
         }
         temp = temp->down;
     }
+    
+}
+
+void Graph::randomGraph(int noOfVertices)
+{
+
+    srand(time(0));
+    for(int i=0;i<noOfVertices;i++)
+    {
+        this->add_vertex(rand());
+    }
+
+    Node *temp = head;
+
+    while(temp!= nullptr)
+    {
+         Node *temp1 = head;
+        while(temp1!= nullptr)
+        {
+            if(rand()>( temp1->data + temp->data)/2)
+            {
+                add_edge(temp->data, temp1->data);
+            
+            }
+            temp1 = temp1->down;
+           
+        }
+
+        temp = temp->down;
+       
+    }
+
 }

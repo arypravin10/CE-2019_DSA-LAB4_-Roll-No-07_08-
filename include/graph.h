@@ -51,6 +51,7 @@ public:
     int show_degree(int vertex);
     void show_neighbours(int vertex);
     bool is_neighbour(int vertex1, int vertex2);
+    void randomGraph(int noOfVertices);
 
     void removing_edge(int vertex)
     {
@@ -68,15 +69,27 @@ public:
     void print()
     {
         auto temp = head;
-        std::cout << "The vertexes are ";
+        std::cout << "Traversing... "<<std::endl;
         while (temp)
         {
+            Node *tempEdge = temp;
+            
 
-            std::cout << temp->data << ',';
+            std::cout << temp->data ;
+            while (tempEdge->next!= nullptr)
+            {
+                std::cout<<" -> "<<tempEdge->next->data;
+                tempEdge = tempEdge->next;
+            }
+            std::cout<<std::endl;
+            
 
             temp = temp->down;
         }
         std::cout << std::endl;
+
+
+
     }
 
 private:
