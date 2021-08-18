@@ -118,3 +118,87 @@ int Graph::show_numof_vertices()
     std::cout << "The total num of vertices is ";
     return count;
 }
+
+
+int Graph::show_numof_edges()
+{
+
+    return counter++;
+}
+
+bool Graph::is_neighbour(int vertex1, int vertex2)
+{
+    Node *temp = head;
+    while (temp)
+    {
+        if (temp->data == vertex1)
+        {
+
+            while (temp)
+            {
+                if (temp->data == vertex2)
+                {
+                    return true;
+                }
+                temp = temp->next;
+            }
+        }
+        temp = temp->down;
+    }
+    return false;
+}
+
+int Graph::show_indegree(int vertex)
+{
+
+    int count = 0;
+    Node *temp = head;
+    while (temp)
+    {
+        if (temp->data == vertex)
+        {
+            while (temp->next)
+            {
+                count++;
+                temp = temp->next;
+            }
+            break;
+        }
+        temp = temp->down;
+    }
+
+    return count;
+}
+
+int Graph::show_outdegree(int vertex)
+{
+
+    return show_indegree(vertex);
+}
+
+int Graph::show_degree(int vertex)
+{
+
+    return show_indegree(vertex) + show_outdegree(vertex);
+}
+
+void Graph::show_neighbours(int vertex)
+{
+    Node *temp = head;
+    while (temp)
+    {
+        if (temp->data == vertex)
+        {
+            std::cout << vertex << "->";
+
+            while (temp->next)
+            {
+                temp = temp->next;
+                std::cout << temp->data << "->";
+            }
+            std::cout << std::endl;
+            break;
+        }
+        temp = temp->down;
+    }
+}
